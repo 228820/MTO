@@ -6,8 +6,17 @@ int my_printf(char *format_string, char *param){
 		if((format_string[i] == '#') && (format_string[i+1] == 'k')){
 			i++;
 			printf("%s",param);
-		}else
-			putchar(format_string[i]);
+		} else {
+			char letter = format_string[i];
+			if(letter > 65 && letter < 90) {
+				letter = letter + 32;
+			} else if(letter > 97 && letter < 122){
+				letter = letter - 32;
+			}
+			putchar(letter);
+			
+		}
+			
 	}
 	puts("");
 }
