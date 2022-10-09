@@ -14,7 +14,19 @@ int my_printf(char *format_string, char *param) {
         }
         putchar(letter);
       }
-    } else {
+    } else if ((format_string[i] == '#') && (format_string[i + 1] == '.')) {
+      i += 2;
+      char tab_with_number[1024];
+      for (int j = 0; j < strlen(format_string); j++) {
+        if (format_string[i + j] == 'k') {
+          break;
+        }
+        tab_with_number[j] = format_string[i + j];
+      }
+      int number = atoi(tab_with_number);
+
+ 
+    }  else {
       putchar(format_string[i]);
     }
   }
