@@ -16,17 +16,20 @@ int my_printf(char *format_string, char *param) {
       }
     } else if ((format_string[i] == '#') && (format_string[i + 1] == '.')) {
       i += 2;
-      char tab_with_number[1024];
-      for (int j = 0; j < strlen(format_string); j++) {
+      char tab_with_number[8];
+      int counter = 0;
+      for (int j = 0; j < strlen(tab_with_number); j++) {
         if (format_string[i + j] == 'k') {
           break;
         }
         tab_with_number[j] = format_string[i + j];
+        counter++;
       }
-      i++;
+      i += counter;
+
       int number_from_string = atoi(tab_with_number);
       int number_of_letter_to_display;
-      if(number_from_string > strlen(param)) {
+      if (number_from_string > strlen(param)) {
         number_of_letter_to_display = strlen(param);
       } else {
         number_of_letter_to_display = number_from_string;
