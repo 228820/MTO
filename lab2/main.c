@@ -23,9 +23,18 @@ int my_printf(char *format_string, char *param) {
         }
         tab_with_number[j] = format_string[i + j];
       }
+      i++;
       int number = atoi(tab_with_number);
 
- 
+      for (int j = 0; j < number; j++) {
+        char letter = param[j];
+        if (letter > 65 && letter < 90) {
+          letter = letter + 32;
+        } else if (letter > 97 && letter < 122) {
+          letter = letter - 32;
+        }
+        putchar(letter);
+      }
     }  else {
       putchar(format_string[i]);
     }
