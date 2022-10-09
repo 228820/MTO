@@ -8,11 +8,6 @@ fjdslkfjdl TEST7 tttttt
 fjdlsjfkl TEST8 oooolll
 rwrewrew TEST9 fjdslkjfdl
 fjdlskjfldjflj TEST10 rewrewrew
-jsdkfhkjsd te fdksjhf
-fsdlkjfsd test12 fdskjk
-ffsdjkljf test13 fdsjlkfj
-fsdkj #. flsdkjf
-flsdkjfldsj #.k fsdkjhf
-kjsdfsd # .k fjkdsh
-fsdiojkflsd #. k fdkjs
-flskdjdfl # . k fdsljf
+jsdkfhkjsd TE fdksjhf
+fsdlkjfsd TEST12 fdskjk
+ffsdjkljf TEST13 fdsjlkfj
