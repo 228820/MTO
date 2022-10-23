@@ -49,7 +49,50 @@ int my_printf(char *format_string, char *param) {
         }
         putchar(letter);
       }
-    } else {
+    } else if((format_string[i] == '#') && (format_string[i + 1] >= '0') && (format_string[i + 1] <= '9')) {
+    	i++;
+      	char tab_with_number[8];
+      	for (int j = 0; j < strlen(tab_with_number); j++) {
+        	tab_with_number[j] = "";
+      	}
+
+      	int counter = 0;
+      	for (int j = 0; j < strlen(tab_with_number); j++) {
+        	if (format_string[i + j] == 'k') {
+          		break;
+        	}
+
+        	if (format_string[i + j] >= '0' && format_string[i + j] <= '9') {
+          		tab_with_number[j] = format_string[i + j];
+          		counter++;
+        	}
+      	}	
+      i += counter;
+
+      int number_of_space = 0;
+      int number_from_string = atoi(tab_with_number);
+      if(number_from_string > strlen(param)) {
+        number_of_space =  number_from_string - strlen(param);
+      } else {
+        number_of_space = strlen(param) - number_from_string;
+      }
+
+      for(int i = 0; i< number_of_space; i++) {
+        putchar(32);
+      }
+
+      for (int j = 0; j < strlen(param); j++) {
+        char letter = param[j];
+  
+        if (letter > 65 && letter < 90) {
+          letter = letter + 32;
+        } else if (letter > 97 && letter < 122) {
+          letter = letter - 32;
+        }
+
+        putchar(letter);
+    }
+    else {
       putchar(format_string[i]);
     }
   }
