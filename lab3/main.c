@@ -11,12 +11,6 @@ void printChangedLetter(char letter) {
   putchar(letter);
 }
 
-void clearArray(char *arr) {
-  for (int i = 0; i < strlen(arr); i++) {
-    arr[i] = '\0';
-  }
-}
-
 int my_printf(char *format_string, char *param) {
   for (int i = 0; i < strlen(format_string); i++) {
     if (format_string[i] == '#') {
@@ -30,7 +24,9 @@ int my_printf(char *format_string, char *param) {
         i += 2;
 
         char tab_with_number[8];
-        clearArray(tab_with_number);
+        for (int i = 0; i < 8; i++) {
+          tab_with_number[i] = '\0';
+        }
 
         int counter = 0;
         for (int j = 0; j < strlen(tab_with_number); j++) {
@@ -69,7 +65,9 @@ int my_printf(char *format_string, char *param) {
         i++;
 
         char tab_with_number[8];
-        clearArray(tab_with_number);
+        for (int i = 0; i < 8; i++) {
+          tab_with_number[i] = '\0';
+        }
 
         int counter = 0;
         for (int j = 0; j <= strlen(tab_with_number); j++) {
