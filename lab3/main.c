@@ -85,8 +85,10 @@ int my_printf(char *format_string, char *param) {
       i += counter;
 
       int number_of_space = atoi(tab_with_number);
-      if(number_of_space == 1 || flag == 1) {
+      if(number_of_space <= strlen(param) || flag == 1) {
         number_of_space = 0;
+      } else {
+        number_of_space = number_of_space - strlen(param);
       }
       
       for(int i = 0; i< number_of_space; i++) {
