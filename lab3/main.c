@@ -2,24 +2,28 @@
 #include <string.h>
 #include <stdlib.h>
 
+void printChangedLetter(char letter) {
+  if (letter > 65 && letter < 90) {
+    letter = letter + 32;
+  } else if (letter > 97 && letter < 122) {
+    letter = letter - 32;
+  }
+  putchar(letter);
+}
+
 int my_printf(char *format_string, char *param) {
+
   for (int i = 0; i < strlen(format_string); i++) {
     if ((format_string[i] == '#') && (format_string[i + 1] == 'k')) {
       i++;
 
       for (int j = 0; j < strlen(param); j++) {
         char letter = param[j];
-
-        if (letter > 65 && letter < 90) {
-          letter = letter + 32;
-        } else if (letter > 97 && letter < 122) {
-          letter = letter - 32;
-        }
-
-        putchar(letter);
+        printChangedLetter(letter);
       }
     } else if ((format_string[i] == '#') && (format_string[i + 1] == '.')) {
       i += 2;
+
       char tab_with_number[8];
       for (int j = 0; j < strlen(tab_with_number); j++) {
         tab_with_number[j] = "";
@@ -38,6 +42,7 @@ int my_printf(char *format_string, char *param) {
       }
       i += counter;
 
+
       int number_from_string = atoi(tab_with_number);
       int number_of_letter_to_display;
 
@@ -49,23 +54,20 @@ int my_printf(char *format_string, char *param) {
 
       for (int j = 0; j < number_of_letter_to_display; j++) {
         char letter = param[j];
-
-        if (letter > 65 && letter < 90) {
-          letter = letter + 32;
-        } else if (letter > 97 && letter < 122) {
-          letter = letter - 32;
-        }
-
-        putchar(letter);
+        printChangedLetter(letter);
       }
+
     } else if(((format_string[i] == '#') && (format_string[i + 1] >= '0') && (format_string[i + 1] <= '9')) || ((format_string[i] == '#') && (format_string[i + 2] >= '0') && (format_string[i + 1] == '-') && (format_string[i + 2] <= '9'))) {
+
       int flag = 0;
       if(format_string[i + 1] == '-') {
         i++;
         flag = 1;
       }
       i++;
+
       
+
       char tab_with_number[8];
       for (int j = 0; j < strlen(tab_with_number); j++) {
         tab_with_number[j] = "";
@@ -90,23 +92,15 @@ int my_printf(char *format_string, char *param) {
       } else {
         number_of_space = number_of_space - strlen(param);
       }
-      
+
       for(int i = 0; i< number_of_space; i++) {
         putchar(32);
       }
 
       for (int j = 0; j < strlen(param); j++) {
         char letter = param[j];
-  
-        if (letter > 65 && letter < 90) {
-          letter = letter + 32;
-        } else if (letter > 97 && letter < 122) {
-          letter = letter - 32;
-        }
-
-        putchar(letter);
+        printChangedLetter(letter);
       }
-      
     } else {
       putchar(format_string[i]);
     }
