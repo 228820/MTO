@@ -58,8 +58,14 @@ int my_printf(char *format_string, char *param) {
 
         putchar(letter);
       }
-    } else if((format_string[i] == '#') && (format_string[i + 1] >= '0') && (format_string[i + 1] <= '9')) {
+    } else if(((format_string[i] == '#') && (format_string[i + 1] >= '0') && (format_string[i + 1] <= '9')) || ((format_string[i] == '#') && (format_string[i + 2] >= '0') && (format_string[i + 1] == '-') && (format_string[i + 2] <= '9'))) {
+      int flag = 0;
+      if(format_string[i + 1] == '-') {
+        i++;
+        flag = 1;
+      }
       i++;
+      
       char tab_with_number[8];
       for (int j = 0; j < strlen(tab_with_number); j++) {
         tab_with_number[j] = "";
@@ -79,7 +85,7 @@ int my_printf(char *format_string, char *param) {
       i += counter;
 
       int number_of_space = atoi(tab_with_number);
-      if(number_of_space == 1) {
+      if(number_of_space == 1 || flag == 1) {
         number_of_space = 0;
       }
       
