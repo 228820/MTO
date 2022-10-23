@@ -72,12 +72,12 @@ int my_printf(char *format_string, char *param) {
       }
 
       int counter = 0;
-      for (int j = 0; j < strlen(tab_with_number); j++) {
+      for (int j = 0; j <= strlen(tab_with_number); j++) {
         if (format_string[i + j] == 'k') {
           break;
         }
 
-        if (format_string[i + j] >= '0' && format_string[i + j] <= '9') {
+        if (format_string[i + j] >= 48 && format_string[i + j] <= 57) {
           tab_with_number[j] = format_string[i + j];
           counter++;
         }
