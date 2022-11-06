@@ -6,8 +6,11 @@ var lingeringLine = "";
 
 function my_printf(format_string,param){
 	for(var i=0;i<format_string.length;i++){
-		if((format_string.charAt(i) == '#') && (format_string.charAt(i+1) == 'k')){
-			process.stdout.write(param);
+		if((format_string.charAt(i) == '#') && (format_string.charAt(i+1) == 'g')){
+			const arrayWithNumber = param.split('');
+			const reversedArrayWithNumber = arrayWithNumber.reverse()
+			const outputString = reversedArrayWithNumber.join('')
+			process.stdout.write(outputString);
 			i++;
 		}else{
 			process.stdout.write(format_string.charAt(i));
