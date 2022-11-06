@@ -7,15 +7,24 @@ var lingeringLine = "";
 function my_printf(format_string,param){
 	for(var i=0;i<format_string.length;i++){
 		if((format_string.charAt(i) == '#') && (format_string.charAt(i+1) == 'g')){
-			const arrayWithNumber = param.split('');
+			if(param) {
+				const arrayWithNumber = param.split('');
 			
-			if(!arrayWithNumber.length) {
-				process.stdout.write('0');
+				if(arrayWithNumber[0] == '-') {
+					const arrayWithoutMinusSign = arrayWithNumber.slice(1);
+					let reversedArrayWithNumber = arrayWithoutMinusSign.reverse()
+					reversedArrayWithNumber.unshift('-')
+					const outputString = reversedArrayWithNumber.join('')
+					process.stdout.write(outputString);
+				} else {
+					const reversedArrayWithNumber = arrayWithNumber.reverse()
+					const outputString = reversedArrayWithNumber.join('')
+					process.stdout.write(outputString);
+				}
 			} else {
-				const reversedArrayWithNumber = arrayWithNumber.reverse()
-				const outputString = reversedArrayWithNumber.join('')
-				process.stdout.write(outputString);
+				process.stdout.write('0');
 			}
+			
 			i++;
 		}else{
 			process.stdout.write(format_string.charAt(i));
