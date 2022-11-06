@@ -9,11 +9,11 @@ function my_printf(format_string,param){
 		if((format_string.charAt(i) == '#') && (format_string.charAt(i+1) == 'g')){
 			if(param) {
 				const arrayWithDigits = param.split('');
-				const regexp = /^[^0-9]/;
+				const regexForLettersOnly = /^[^0-9]/;
 			
 				if(arrayWithDigits[0] == '-') {
 					const number = Number.parseInt(param) * -1;
-					const arrayWithNumber = String(number).split("").map((num)=>{
+					const arrayWithNumber = String(number).split('').map((num)=>{
 						return Number(num)
 					  })
 
@@ -21,11 +21,11 @@ function my_printf(format_string,param){
 					reversedArrayWithNumber.unshift('-')
 					const outputString = reversedArrayWithNumber.join('')
 					process.stdout.write(outputString);
-				} else if(param.match(regexp))  {
+				} else if(param.match(regexForLettersOnly))  {
 					process.stdout.write('0');
 				} else {
 					const number = Number.parseInt(param);
-					const arrayWithNumber = String(number).split("").map((num)=>{
+					const arrayWithNumber = String(number).split('').map((num)=>{
 						return Number(num)
 					  })
 
