@@ -9,6 +9,7 @@ function my_printf(format_string,param){
 		if((format_string.charAt(i) == '#') && (format_string.charAt(i+1) == 'g')){
 			if(param) {
 				const arrayWithNumber = param.split('');
+				const regexp = /^[^0-9]/;
 			
 				if(arrayWithNumber[0] == '-') {
 					const arrayWithoutMinusSign = arrayWithNumber.slice(1);
@@ -16,6 +17,8 @@ function my_printf(format_string,param){
 					reversedArrayWithNumber.unshift('-')
 					const outputString = reversedArrayWithNumber.join('')
 					process.stdout.write(outputString);
+				} else if(param.match(regexp))  {
+					process.stdout.write('0');
 				} else {
 					const reversedArrayWithNumber = arrayWithNumber.reverse()
 					const outputString = reversedArrayWithNumber.join('')
