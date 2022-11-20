@@ -38,6 +38,58 @@ function my_printf(format_string,param){
 			}
 			
 			i++;
+		} else if((format_string.charAt(i) == '#') && format_string.split('').findIndex((x) => x === 'g') > -1) {
+			const indexOfG = format_string.split('').findIndex((x) => x === 'g');
+			const lengthOfStringToDisplay = format_string.split('').slice(i+1, indexOfG);
+			// console.log('Number: ' + number);
+			// const number2 = Number.parseInt(param);
+
+			const isZeroFirst = lengthOfStringToDisplay[0] == 0
+			const arrayWithDigits = param.split('');
+			// if(arrayWithDigits[0] == '-') {
+			// 	process.stdout.write('-')
+
+			// 	for(const j = arrayWithDigits.length; j < lengthOfStringToDisplay; j++) {
+			// 		if(!isZeroFirst) {
+			// 			process.stdout.write(' ')
+			// 		} else {
+			// 			process.stdout.write('0')
+			// 		}
+			// 	}
+
+			// 	arrayWithDigits.forEach((number) => {
+			// 		if(number != '-') {
+			// 			let numberToWrite = Number.parseInt(number) - 1;
+			// 			if(numberToWrite == -1) {
+			// 				numberToWrite = 9;
+			// 			}
+	
+			// 			process.stdout.write(numberToWrite)
+			// 		}
+			// 	})
+			// } else {
+				for(const j = arrayWithDigits.length; j < lengthOfStringToDisplay; j++) {
+					if(!isZeroFirst) {
+						process.stdout.write(' ')
+					} else {
+						process.stdout.write('0')
+					}
+				}
+
+				arrayWithDigits.forEach((number) => {
+					let numberToWrite = Number.parseInt(number) - 1;
+					if(numberToWrite == -1) {
+						numberToWrite = 9;
+					}
+
+					process.stdout.write(numberToWrite.toString())
+				})
+			// }
+
+			// console.log('arrayWithDigits: ' + arrayWithDigits)
+				i++;
+				i += lengthOfStringToDisplay.length
+				// i++;
 		}else{
 			process.stdout.write(format_string.charAt(i));
 		}
