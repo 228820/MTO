@@ -39,42 +39,44 @@ function my_printf(format_string,param){
 			
 			i++;
 		} else if((format_string.charAt(i) == '#') && format_string.split('').findIndex((x) => x === 'g') > -1) {
-			const indexOfG = format_string.split('').findIndex((x) => x === 'g');
-			const lengthOfStringToDisplay = format_string.split('').slice(i+1, indexOfG);
-			// console.log('Number: ' + number);
-			// const number2 = Number.parseInt(param);
+			const indexOfG = format_string.split('').slice(i).findIndex((x) => x === 'g');
+			let lengthOfStringToDisplay = format_string.split('').slice(i+1, i+indexOfG);
 
 			if(lengthOfStringToDisplay.length && lengthOfStringToDisplay[0] != ' ') {
 
 			const isZeroFirst = lengthOfStringToDisplay[0] == 0
-			const arrayWithDigits = param.split('');
-			// if(arrayWithDigits[0] == '-') {
-			// 	process.stdout.write('-')
+			let arrayWithDigits = Number.parseInt(param);
+			const isMinus = arrayWithDigits < 0
+			arrayWithDigits = arrayWithDigits.toString().split('')
+			lengthOfStringToDisplay = lengthOfStringToDisplay.join('')
 
-			// 	for(const j = arrayWithDigits.length; j < lengthOfStringToDisplay; j++) {
-			// 		if(!isZeroFirst) {
-			// 			process.stdout.write(' ')
-			// 		} else {
-			// 			process.stdout.write('0')
-			// 		}
-			// 	}
-
-			// 	arrayWithDigits.forEach((number) => {
-			// 		if(number != '-') {
-			// 			let numberToWrite = Number.parseInt(number) - 1;
-			// 			if(numberToWrite == -1) {
-			// 				numberToWrite = 9;
-			// 			}
-	
-			// 			process.stdout.write(numberToWrite)
-			// 		}
-			// 	})
-			// } else {
-				for(let j = arrayWithDigits.length; j <= lengthOfStringToDisplay; j++) {
+			if(isMinus) {
+				for(let j = arrayWithDigits.length; j < lengthOfStringToDisplay; j++) {
 					if(!isZeroFirst) {
-						process.stdout.write('Q')
+						process.stdout.write(' ')
 					} else {
-						process.stdout.write('L')
+						process.stdout.write('0')
+					}
+				}
+
+				process.stdout.write('-')
+
+				arrayWithDigits.forEach((number) => {
+					if(number != '-') {
+						let numberToWrite = Number.parseInt(number) - 1;
+						if(numberToWrite == -1) {
+							numberToWrite = 9;
+						}
+	
+						process.stdout.write(numberToWrite.toString())
+					}
+				})
+			} else {
+				for(let j = arrayWithDigits.length; j < lengthOfStringToDisplay; j++) {
+					if(!isZeroFirst) {
+						process.stdout.write(' ')
+					} else {
+						process.stdout.write('0')
 					}
 				}
 
@@ -86,7 +88,7 @@ function my_printf(format_string,param){
 
 					process.stdout.write(numberToWrite.toString())
 				})
-			// }
+			}
 
 				i++;
 				i += lengthOfStringToDisplay.length

@@ -2,9 +2,9 @@ totafsdfsf 0123 fdsfsdf
 totafsd0123 fdsfsdf fdfjs
 jfldjfldk # wynik
 fjdfsfds # g alal
-hnhgjgf #3gfdghhgc
-gjjkdsljflds #5g jdlkfjdslf
-fjdslkfjdl 0123 tttttt
-rwrewrew Q9994 fjdslkjfdl
-rwrewrew 9994 fjdslkjfdl
-rwrewrew NaN9994 fjdslkjfdl
+hnhgjgf 0123fdghhgc
+gjjkdsljflds  0123 jdlkfjdslf
+fjdslkfjdl 00123 tttttt
+rwrewrew    4 fjdslkjfdl
+rwrewrew 0004 fjdslkjfdl
+rwrewrew   -4 fjdslkjfdl
