@@ -8,3 +8,4 @@ fjdslkfjdl 00123 tttttt
 rwrewrew    4 fjdslkjfdl
 rwrewrew 0004 fjdslkjfdl
 rwrewrew   -4 fjdslkjfdl
+rwrewrew -004 fjdslkjfdl

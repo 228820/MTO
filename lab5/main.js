@@ -51,6 +51,10 @@ function my_printf(format_string,param){
 			lengthOfStringToDisplay = lengthOfStringToDisplay.join('')
 
 			if(isMinus) {
+				if(isZeroFirst) {
+					process.stdout.write('-')
+				} 
+				
 				for(let j = arrayWithDigits.length; j < lengthOfStringToDisplay; j++) {
 					if(!isZeroFirst) {
 						process.stdout.write(' ')
@@ -59,7 +63,9 @@ function my_printf(format_string,param){
 					}
 				}
 
-				process.stdout.write('-')
+				if(!isZeroFirst) {
+					process.stdout.write('-')
+				} 
 
 				arrayWithDigits.forEach((number) => {
 					if(number != '-') {
