@@ -44,6 +44,8 @@ function my_printf(format_string,param){
 			// console.log('Number: ' + number);
 			// const number2 = Number.parseInt(param);
 
+			if(lengthOfStringToDisplay.length && lengthOfStringToDisplay[0] != ' ') {
+
 			const isZeroFirst = lengthOfStringToDisplay[0] == 0
 			const arrayWithDigits = param.split('');
 			// if(arrayWithDigits[0] == '-') {
@@ -68,11 +70,11 @@ function my_printf(format_string,param){
 			// 		}
 			// 	})
 			// } else {
-				for(const j = arrayWithDigits.length; j < lengthOfStringToDisplay; j++) {
+				for(let j = arrayWithDigits.length; j <= lengthOfStringToDisplay; j++) {
 					if(!isZeroFirst) {
-						process.stdout.write(' ')
+						process.stdout.write('Q')
 					} else {
-						process.stdout.write('0')
+						process.stdout.write('L')
 					}
 				}
 
@@ -86,10 +88,11 @@ function my_printf(format_string,param){
 				})
 			// }
 
-			// console.log('arrayWithDigits: ' + arrayWithDigits)
 				i++;
 				i += lengthOfStringToDisplay.length
-				// i++;
+			} else {
+				process.stdout.write(format_string.charAt(i));
+			}
 		}else{
 			process.stdout.write(format_string.charAt(i));
 		}

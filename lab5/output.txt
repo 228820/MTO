@@ -1,19 +1,10 @@
-totafsdfsf Here
-3g fdsfsdf
-totafsdHere
-3g fdsfsdf fdfjs
-jfldjfldk Here
- wynik
-fjdfsfds Here
- g alal
-hnhgjgf Here
-3gfdghhgc
+totafsdfsf 0123 fdsfsdf
+totafsd0123 fdsfsdf fdfjs
+jfldjfldk # wynik
+fjdfsfds # g alal
+hnhgjgf #3gfdghhgc
 gjjkdsljflds #5g jdlkfjdslf
-fjdslkfjdl Here
-05g tttttt
-rwrewrew Here
-4g fjdslkjfdl
-rwrewrew Here
-04g fjdslkjfdl
-rwrewrew Here
-4g fjdslkjfdl
+fjdslkfjdl 0123 tttttt
+rwrewrew Q9994 fjdslkjfdl
+rwrewrew 9994 fjdslkjfdl
+rwrewrew NaN9994 fjdslkjfdl
