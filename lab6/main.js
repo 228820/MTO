@@ -11,39 +11,56 @@ function my_printf(format_string,param){
 			let lengthOfStringToDisplay = format_string.split('').slice(i+1, i+indexOfG);
 
 			if(lengthOfStringToDisplay.length && lengthOfStringToDisplay[0] != ' ') {
+				const isZero = param[0] == 0;
+				let arrayWithDigits = Number.parseInt(param);
+				const isMinus = arrayWithDigits < 0;
+				arrayWithDigits = arrayWithDigits.toString().split('');
+				lengthOfStringToDisplay = lengthOfStringToDisplay.join('');
 
-			let arrayWithDigits = Number.parseInt(param);
-			const isMinus = arrayWithDigits < 0
-			arrayWithDigits = arrayWithDigits.toString().split('')
-			lengthOfStringToDisplay = lengthOfStringToDisplay.join('')
-
-			if(isMinus) {
-				process.stdout.write('-')
-				for(let j = arrayWithDigits.length; j <= Number(lengthOfStringToDisplay[1]); j++) {
-						process.stdout.write('0')
-				}
-
-				arrayWithDigits.forEach((number) => {
-					if(number != '-') {
-						let numberToWrite = Number.parseInt(number);
-						numberToWrite = (number*9+1)%10;
-						process.stdout.write(numberToWrite.toString())
+				if(isMinus) {
+					process.stdout.write('-');
+					for(let j = arrayWithDigits.length; j <= Number(lengthOfStringToDisplay[1]); j++) {
+							process.stdout.write('0');
 					}
-				})
-			} else {
-				for(let j = arrayWithDigits.length; j < Number(lengthOfStringToDisplay[1]); j++) {
-						process.stdout.write('0')
-				}
 
-				arrayWithDigits.forEach((number) => {
-					let numberToWrite = Number.parseInt(number);
-					numberToWrite = (number*9+1)%10;
-					process.stdout.write(numberToWrite.toString())
-				})
-			}
+					arrayWithDigits.forEach((number) => {
+						if(number != '-') {
+							let numberToWrite = Number.parseInt(number);
+							if(!numberToWrite) {
+								numberToWrite = 9;
+							} else {
+								numberToWrite = (number*9+1)%10;
+							}
+							process.stdout.write(numberToWrite.toString());
+						}
+					})
+				} else {
+					let temp = 0;
+					if(isZero) {
+						temp = 1;
+					}
+					for(let j = arrayWithDigits.length; j < Number(lengthOfStringToDisplay[1]) - temp; j++) {
+							process.stdout.write('0');
+					}
+
+					if(isZero) {
+						process.stdout.write('9');
+					}
+
+					arrayWithDigits.forEach((number) => {
+						let numberToWrite = Number.parseInt(number);
+						
+						if(!numberToWrite) {
+							numberToWrite = 9;
+						} else {
+							numberToWrite = (number*9+1)%10;
+						}
+						process.stdout.write(numberToWrite.toString());
+					})
+				}
 
 				i++;
-				i += lengthOfStringToDisplay.length
+				i += lengthOfStringToDisplay.length;
 			} else {
 				process.stdout.write(format_string.charAt(i));
 			}
