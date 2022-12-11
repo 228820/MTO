@@ -25,11 +25,8 @@ function my_printf(format_string,param){
 
 				arrayWithDigits.forEach((number) => {
 					if(number != '-') {
-						let numberToWrite = Number.parseInt(number) - 1;
-						if(numberToWrite == -1) {
-							numberToWrite = 9;
-						}
-	
+						let numberToWrite = Number.parseInt(number);
+						numberToWrite = (number*9+1)%10;
 						process.stdout.write(numberToWrite.toString())
 					}
 				})
@@ -39,11 +36,8 @@ function my_printf(format_string,param){
 				}
 
 				arrayWithDigits.forEach((number) => {
-					let numberToWrite = Number.parseInt(number) - 1;
-					if(numberToWrite == -1) {
-						numberToWrite = 9;
-					}
-
+					let numberToWrite = Number.parseInt(number);
+					numberToWrite = (number*9+1)%10;
 					process.stdout.write(numberToWrite.toString())
 				})
 			}
