@@ -3,9 +3,8 @@ totafsd0123 fdsfsdf fdfjs
 jfldjfldk # wynik
 fjdfsfds # g alal
 hnhgjgf 0123fdghhgc
-gjjkdsljflds  0123 jdlkfjdslf
-fjdslkfjdl 00123 tttttt
-rwrewrew    4 fjdslkjfdl
-rwrewrew 0004 fjdslkjfdl
-rwrewrew   -4 fjdslkjfdl
-rwrewrew -004 fjdslkjfdl
+gjjkdsljflds 0123 jdlkfjdslf
+fjdslkfjdl 01234 tttttt
+rwrewrew 01 fjdslkjfdl
+rwrewrew -0123 fjdslkjfdl
+rwrewrew -0012 fjdslkjfdl

@@ -5,8 +5,8 @@ process.stdin.setEncoding('utf8');
 var lingeringLine = "";
 
 function my_printf(format_string,param){
-	for(var i=0;i<format_string.length;i++){
-		if((format_string.charAt(i) == '#') && (format_string.charAt(i+1) == 'g')){
+	for(var i=0; i<format_string.length-2; i++) {
+		if((format_string.charAt(i) == '#') && (format_string.charAt(i+1) == '.') &&  (format_string.charAt(i+2) == 'g')){
 			if(param) {
 				const arrayWithDigits = param.split('');
 				const regexForLettersOnly = /^[^0-9]/;
@@ -38,34 +38,23 @@ function my_printf(format_string,param){
 			}
 			
 			i++;
-		} else if((format_string.charAt(i) == '#') && format_string.split('').findIndex((x) => x === 'g') > -1) {
+		} else if((format_string.charAt(i) == '#') && (format_string.charAt(i+1) == '.') && format_string.split('').findIndex((x) => x === 'g') > -1) {
 			const indexOfG = format_string.split('').slice(i).findIndex((x) => x === 'g');
 			let lengthOfStringToDisplay = format_string.split('').slice(i+1, i+indexOfG);
 
 			if(lengthOfStringToDisplay.length && lengthOfStringToDisplay[0] != ' ') {
 
-			const isZeroFirst = lengthOfStringToDisplay[0] == 0
+			// const isZeroFirst = lengthOfStringToDisplay[0] == 0
 			let arrayWithDigits = Number.parseInt(param);
 			const isMinus = arrayWithDigits < 0
 			arrayWithDigits = arrayWithDigits.toString().split('')
 			lengthOfStringToDisplay = lengthOfStringToDisplay.join('')
 
 			if(isMinus) {
-				if(isZeroFirst) {
-					process.stdout.write('-')
-				} 
-				
-				for(let j = arrayWithDigits.length; j < lengthOfStringToDisplay; j++) {
-					if(!isZeroFirst) {
-						process.stdout.write(' ')
-					} else {
+				process.stdout.write('-')
+				for(let j = arrayWithDigits.length; j <= Number(lengthOfStringToDisplay[1]); j++) {
 						process.stdout.write('0')
-					}
 				}
-
-				if(!isZeroFirst) {
-					process.stdout.write('-')
-				} 
 
 				arrayWithDigits.forEach((number) => {
 					if(number != '-') {
@@ -79,11 +68,7 @@ function my_printf(format_string,param){
 				})
 			} else {
 				for(let j = arrayWithDigits.length; j < lengthOfStringToDisplay; j++) {
-					if(!isZeroFirst) {
-						process.stdout.write(' ')
-					} else {
 						process.stdout.write('0')
-					}
 				}
 
 				arrayWithDigits.forEach((number) => {
@@ -101,10 +86,12 @@ function my_printf(format_string,param){
 			} else {
 				process.stdout.write(format_string.charAt(i));
 			}
-		}else{
+		} else {
 			process.stdout.write(format_string.charAt(i));
 		}
 	}
+	process.stdout.write(format_string.charAt(format_string.length-2));
+	process.stdout.write(format_string.charAt(format_string.length-1));
 	console.log("");
 }
 
