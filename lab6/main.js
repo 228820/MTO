@@ -6,40 +6,6 @@ var lingeringLine = "";
 
 function my_printf(format_string,param){
 	for(var i=0; i<format_string.length-2; i++) {
-		// if((format_string.charAt(i) == '#') && (format_string.charAt(i+1) == '.') && (format_string.charAt(i+2) == 'g')){
-		// 	if(param) {
-		// 		const arrayWithDigits = param.split('');
-		// 		const regexForLettersOnly = /^[^0-9]/;
-			
-		// 		if(arrayWithDigits[0] == '-') {
-		// 			const number = Number.parseInt(param) * -1;
-		// 			const arrayWithNumber = String(number).split('').map((num)=>{
-		// 				return Number(num)
-		// 			  })
-
-		// 			let reversedArrayWithNumber = arrayWithNumber.reverse()
-		// 			reversedArrayWithNumber.unshift('-')
-		// 			const outputString = reversedArrayWithNumber.join('')
-		// 			process.stdout.write(outputString);
-		// 		} else if(param.match(regexForLettersOnly))  {
-		// 			process.stdout.write('0');
-		// 		} else {
-		// 			const number = Number.parseInt(param);
-		// 			const arrayWithNumber = String(number).split('').map((num)=>{
-		// 				return Number(num)
-		// 			  })
-
-		// 			const reversedArrayWithNumber = arrayWithNumber.reverse()
-		// 			const outputString = reversedArrayWithNumber.join('')
-					
-		// 			process.stdout.write(outputString);
-		// 		}
-		// 	} else {
-		// 		process.stdout.write('0');
-		// 	}
-			
-		// 	i++;
-		// } else 
 		if((format_string.charAt(i) == '#') && (format_string.charAt(i+1) == '.') && format_string.split('').findIndex((x) => x === 'g') > -1) {
 			const indexOfG = format_string.split('').slice(i).findIndex((x) => x === 'g');
 			let lengthOfStringToDisplay = format_string.split('').slice(i+1, i+indexOfG);
@@ -68,7 +34,7 @@ function my_printf(format_string,param){
 					}
 				})
 			} else {
-				for(let j = arrayWithDigits.length; j < lengthOfStringToDisplay; j++) {
+				for(let j = arrayWithDigits.length; j < Number(lengthOfStringToDisplay[1]); j++) {
 						process.stdout.write('0')
 				}
 
