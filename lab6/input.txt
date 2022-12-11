@@ -1,22 +1,20 @@
-totafsdfsf #3g fdsfsdf
+totafsdfsf #.3g fdsfsdf
 1234
-totafsd#3g fdsfsdf fdfjs
+totafsd#.3g fdsfsdf fdfjs
 1234
 jfldjfldk # wynik
 1234
 fjdfsfds # g alal
 1234
-hnhgjgf #3gfdghhgc
+hnhgjgf #.3gfdghhgc
 1234
-gjjkdsljflds #5g jdlkfjdslf
+gjjkdsljflds #.5g jdlkfjdslf
 1234
-fjdslkfjdl #05g tttttt
-1234
-rwrewrew #4g fjdslkjfdl
-0005
-rwrewrew #04g fjdslkjfdl
-0005
-rwrewrew #4g fjdslkjfdl
--0005
-rwrewrew #04g fjdslkjfdl
--0005
+fjdslkfjdl #.5g tttttt
+12345
+rwrewrew #.4g fjdslkjfdl
+12
+rwrewrew #.4g fjdslkjfdl
+-1234
+rwrewrew #.4g fjdslkjfdl
+-123
