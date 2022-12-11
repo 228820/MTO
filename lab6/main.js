@@ -11,16 +11,31 @@ function my_printf(format_string,param){
 			let lengthOfStringToDisplay = format_string.split('').slice(i+1, i+indexOfG);
 
 			if(lengthOfStringToDisplay.length && lengthOfStringToDisplay[0] != ' ') {
-				const isZero = param[0] == 0;
+				let isZero = false
 				let arrayWithDigits = Number.parseInt(param);
 				const isMinus = arrayWithDigits < 0;
+
+				if(isMinus) {
+					isZero = param[1] == 0;
+				} else {
+					isZero = param[0] == 0;
+				}
+
 				arrayWithDigits = arrayWithDigits.toString().split('');
 				lengthOfStringToDisplay = lengthOfStringToDisplay.join('');
 
 				if(isMinus) {
 					process.stdout.write('-');
-					for(let j = arrayWithDigits.length; j <= Number(lengthOfStringToDisplay[1]); j++) {
+					let temp = 0;
+					if(isZero) {
+						temp = 1;
+					}
+					for(let j = arrayWithDigits.length; j <= Number(lengthOfStringToDisplay[1]) - temp; j++) {
 							process.stdout.write('0');
+					}
+
+					if(isZero) {
+						process.stdout.write('9');
 					}
 
 					arrayWithDigits.forEach((number) => {
