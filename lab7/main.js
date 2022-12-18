@@ -12,7 +12,27 @@ function my_printf(format_string,param){
 			const hexArr = Array.from(hexStr)
 
 			for(let j = 0; j<hexArr.length; j++) {
-				process.stdout.write(hexArr[j]);
+				if(hexArr[j] == 'a') {
+					process.stdout.write('g');
+				}
+				else if(hexArr[j] == 'b') {
+					process.stdout.write('h');
+				}
+				else if(hexArr[j] == 'c') {
+					process.stdout.write('i');
+				}
+				else if(hexArr[j] == 'd') {
+					process.stdout.write('j');
+				}
+				else if(hexArr[j] == 'e') {
+					process.stdout.write('k');
+				}
+				else if(hexArr[j] == 'f') {
+					process.stdout.write('l');
+				}
+				else {
+					process.stdout.write(hexArr[j]);
+				}
 			}
 			i++;
 		} else {
