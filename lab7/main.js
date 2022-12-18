@@ -5,11 +5,18 @@ process.stdin.setEncoding('utf8');
 var lingeringLine = "";
 
 function my_printf(format_string,param){
+	let flag = false
 	for(var i=0; i<format_string.length-2; i++) {
-		if((format_string.charAt(i) == '#') && (format_string.charAt(i+1) == 'j')) {
+		if((format_string.charAt(i) == '#') && (format_string.charAt(i+1) == 'j') && !flag) {
 			let num = parseInt(param)
 			let hexStr = (num).toString(16)
 			let hexArr = Array.from(hexStr)
+
+			if(isNaN(num)) {
+				process.stdout.write(format_string.charAt(i));
+				flag=true
+				continue
+			}
 
 			if(hexArr[0] == '-') {
 				hexStr = ((num)>>>0).toString(16)
